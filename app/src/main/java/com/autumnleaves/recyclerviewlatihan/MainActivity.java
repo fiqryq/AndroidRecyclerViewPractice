@@ -48,13 +48,21 @@ public class MainActivity extends AppCompatActivity {
     public void setMode(int selectedMode) {
         switch (selectedMode) {
             case R.id.action_list:
+                showRecyclerList();
                 break;
 
             case R.id.action_grid:
+                showRecyclerGrid();
                 break;
 
             case R.id.action_cardview:
                 break;
         }
+    }
+
+    private void showRecyclerGrid() {
+        rvHeroes.setLayoutManager(new GridLayoutManager(this, 2));
+        GridHeroAdapter gridHeroAdapter = new GridHeroAdapter(list);
+        rvHeroes.setAdapter(gridHeroAdapter);
     }
 }
